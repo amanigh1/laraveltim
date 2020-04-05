@@ -1,0 +1,415 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Tajawal&display=swap');
+
+
+html,
+body,
+header {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    letter-spacing: 0;
+    position: relative;
+    background-color: #fff;
+}
+
+/* Paste this css to your style sheet file or under head tag */
+/* This only works with JavaScript,
+if it's not present, don't show loader */
+.no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: #fff;
+}
+
+/*nav {direction: rtl;}*/
+
+.hero {
+    min-height: 100vh;
+    background: center/cover no-repeat;
+    /*background-attachment: fixed;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*.hero:before {*/
+/*    content: "";*/
+/*    display: block;*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    bottom: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    background: rgba(0, 0, 0, 0.4);*/
+/*}*/
+
+.banner {
+    text-align: center;
+    display: inline-block;
+    padding: 2rem;
+    border-radius: 9px;
+}
+
+.banner-title {
+    font-size: 3rem;
+    color: #fff;
+}
+
+.btn-info {
+    background-color: #1be6d8!important;
+    color: #141414;
+}
+
+#about-us, #required, #forms, #services {
+    background-color: #f6f6f6;
+}
+
+.arabic {
+    font-family: 'Tajawal', sans-serif;
+    letter-spacing: 0rem;
+}
+
+
+body[data-aos-duration='4000'] [data-aos],
+[data-aos][data-aos][data-aos-duration='4000'] {
+    transition-duration: 4000ms;
+}
+
+
+.navbar {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 0.8rem;
+    letter-spacing: .1rem;
+
+}
+
+
+.section-title {
+    text-align: center;
+    font-size: 38px;
+    position: relative;
+    padding-bottom: 20px;
+    margin: 0 0 20px;
+
+}
+
+
+
+.links {
+    /*border: 1px solid #1d73be;*/
+    background-color: #ebebeb;
+    /*border-radius: 15px;*/
+}
+
+
+a {
+    cursor: pointer;
+}
+
+.box {
+    text-align: center;
+}
+
+.card {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    text-align: center;
+    height: 500px;
+}
+
+.card-img-top{
+    object-fit: contain;
+    height: 200px;
+}
+
+.card-text{
+    width:200px;
+    margin: auto;
+}
+/*.card-footer {*/
+/*    background-color: transparent;*/
+/*    border-top: none;*/
+/*    margin-top: 0;*/
+/*    padding: 30px;*/
+/*}*/
+
+/*.card-body {*/
+/*    padding-bottom: 0;*/
+/*}*/
+
+/*.card-body h6 {*/
+/*    margin-bottom: 0;*/
+/*}*/
+
+#required p {
+    color: #64686d;
+}
+
+.dot {
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.top-nav-collapse {
+    background-color: black;
+}
+
+.navbar .navbar-brand img {
+    height: 4rem;
+    cursor: pointer;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+    padding-top: .8rem;
+}
+
+#myNav .navbar-nav .nav-item .nav-link:hover {
+    color: #1be6d8;
+}
+
+#myNav .navbar-nav .nav-item .nav-link.active {
+    color: #1be6d8;
+}
+
+.navbar.navbar-dark .breadcrumb .nav-item .nav-link, .navbar.navbar-dark .navbar-nav .nav-item .nav-link {
+    color: #d9d9d9;
+}
+
+.navbar {
+    box-shadow: none;
+    font-family: 'Tajawal', sans-serif;
+    letter-spacing: 0rem;
+}
+
+.icon-div{
+    font-size: 3rem;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.icon-div .fa{
+    color: #1be6d8 !important;
+}
+
+
+.hr-75 {
+    width: 75%;
+}
+
+.hr-50 {
+    width: 50%;
+}
+
+.parallax {
+    background: url(b1.jpg) no-repeat center center fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    height: 25%;
+}
+
+.parallax1 {
+    background: url(building.jpg) no-repeat center center fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    height: 40%;
+}
+
+.parallax2 {
+    background: url(b2.jpg) no-repeat center center fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    height: 40%;
+}
+
+#info {
+    background-color: #ffd626;
+}
+
+
+
+
+.padding {
+    padding: 70px 0;
+}
+
+
+.arrow {
+    text-align: center;
+    margin: 8% 0;
+}
+
+.bounce {
+    -moz-animation: bounce 2s infinite;
+    -webkit-animation: bounce 2s infinite;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+#carousel-example-2 {
+    height: 100vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+
+.tab-content div h3 {
+    background-color: #ffd626;
+    padding: 5px;
+    width: 70%
+}
+
+.nav-tabs .nav-link {
+    color: black;
+}
+
+.hr-blue {
+    height: 2px;
+    width: 60px;
+    background: #05f0e2;
+    position: relative;
+    border: 0;
+    margin: auto;
+}
+
+h2 {
+    /*line-height: 20px;*/
+    /*margin: 0;*/
+    /*font-size: 36px;*/
+    /*font-weight: 300;*/
+    margin-bottom: 20px;
+    color: #666;
+}
+
+
+#contact .fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 67px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+    color: white;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.fa-envelope {
+    background: #dd4b39;
+    color: white;
+}
+
+
+.fa-youtube {
+    background: #bb0000;
+    color: white;
+}
+
+.fa-instagram {
+    background: #125688;
+    color: white;
+}
+
+
+.fa-snapchat-ghost {
+    background: #fffc00;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+
+
+
+
+
+@media only screen and (max-width: 700px) {
+
+
+     h3, h4, h5{
+        font-size: 100%;
+    }
+
+    .banner-title {
+        font-size: 2rem;
+        color: #fff;
+    }
+
+    h2, p {
+        font-size: 80%;
+    }
+    .section-title {
+        font-size: 28px;
+    }
+
+    .navbar {
+        background: rgba(0,0,0,.8);
+    }
+
+    #contact .fa {
+        padding: 20px;
+        font-size: 30px;
+        width: 67px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 50%;
+        margin: 5px;
+    }
+
+
+
+}
+
+
+
+
+
