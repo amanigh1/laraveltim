@@ -4,9 +4,9 @@
 
     <!-- hero -->
     <header id="intro" class="hero" style="background-image: url({{asset('images/bg.jpg')}})">
-        <div class="banner" >
+        <div class="banner">
             <h2 class="banner-title text-uppercase" data-aos="fade-right">A touch integrated marketing</h2>
-            <a data-smooth="#about-us" href="#about-us" >
+            <a data-smooth="#about-us" href="#about-us">
                 <button data-aos="fade-up" class="btn btn-lg btn-info">إقرأ المزيد</button>
             </a>
         </div>
@@ -15,7 +15,7 @@
 
 
     <!-- Main Layout -->
-    <main>
+
 
         <!--   about us     -->
         <section id="about-us" class=" padding">
@@ -86,56 +86,24 @@
                     <h2>خدماتنا</h2>
                     <hr class="hr-blue">
                 </div>
-                <div class="row">
-                    <div class="card col-lg-3 mb-4" data-aos="zoom-out">
-                        <img class="card-img-top" src="{{asset('images/services/social.png')}}" alt="Card image cap">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">إدارة حسابات التواصل</h5>
-                            <p class="card-text mt-2">لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل
-                                توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم</p>
-                            <a href="#">
-                                <button class="btn btn-lg btn-info mt-auto">إطلبها الآن</button>
-                            </a>
+                @if($services)
+                    <div class="row service">
+                        @foreach($services as $service)
+                            <div class="card  col-lg-3 mb-4" data-aos="zoom-out">
+                                <img class="card-img-top" src="{{asset('images/services/'.$service->image)}}"
+                                     alt="Card image cap">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">{{$service->name}}</h5>
+                                    <p class="card-text mt-2">{{$service->description}}</p>
+                                    <a href="{{route('service_form', $service->id )}}">
+                                        <button class="btn btn-lg btn-info mt-auto">اطلبها الآن</button>
+                                    </a>
+                                </div>
+                            </div>
+                        @endforeach
 
-                        </div>
                     </div>
-                    <div class="card col-lg-3 mb-4" data-aos="zoom-out">
-                        <img class="card-img-top" src="{{asset('images/services/video.png')}}" alt="Card image cap">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">المونتاج المرئي</h5>
-                            <p class="card-text mt-2">لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل
-                                توضع الفقرات في الصفحة التي يقرأها. </p>
-                            <a href="#">
-                                <button class="btn btn-lg btn-info mt-auto">إطلبها الآن</button>
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="card col-lg-3 mb-4" data-aos="zoom-out">
-                        <img class="card-img-top" src="{{asset('images/services/design.png')}}" alt="Card image cap">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">التصميم الإبداعي</h5>
-                            <p class="card-text mt-2">للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي، هنا يوجد محتوى نصي"
-                                فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء</p>
-                            <a href="#">
-                                <button class="btn btn-lg btn-info mt-auto">إطلبها الآن</button>
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="card col-lg-3 mb-4" data-aos="zoom-out">
-                        <img class="card-img-top" src="{{asset('images/services/marketing.png')}}" alt="Card image cap">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">التسويق الرقمي</h5>
-                            <p class="card-text mt-2">لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل
-                                توضع الفقرات</p>
-
-                            <a href="#">
-                                <button class="btn btn-lg btn-info mt-auto">إطلبها الآن</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                @endif
             </div>
         </section>
         <!-- Section: Our Services -->
@@ -167,6 +135,34 @@
         <!--   end contact     -->
 
 
-    </main>
 
+
+@endsection
+
+@section('script')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script>
+
+        @if(session('order_received'))
+        Swal.fire({
+            title: '<span class="goldish">شكرًا {{session('order_received')}}!</span>',
+            html: 'تم استلام طلبكم رقم {{session("order_number")}} بنجاح، وسيتم التّواصل معكم قريبًا.',
+            icon: 'success',
+            width: '300px',
+            backdrop: 'rgba(0,0,0,.8)',
+            confirmButtonText: 'تم',
+        });
+    @endif
+
+    @if(session('logout'))
+    Swal.fire({
+        position: 'center',
+        width: '300px',
+        icon: 'success',
+        html: 'تم تسجيل الخروج بنجاح',
+        showConfirmButton: false,
+        timer: 3000
+    })
+        @endif
+</script>
 @endsection

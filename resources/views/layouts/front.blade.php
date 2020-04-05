@@ -25,35 +25,36 @@
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top  bg-dark">
-    <a class="navbar-brand" data-smooth="#intro" href="#intro"> <img src="{{asset('images/logo.png')}}" alt="logo"> </a>
+    <a class="navbar-brand" data-smooth="#intro" href="/#intro"> <img src="{{asset('images/logo.png')}}" alt="logo"> </a>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#myNav" type="button" name="button">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="myNav">
         <ul class="navbar-nav ml-auto smooth-scroll text-center">
-            <li class="nav-item"><a class="nav-link " data-smooth="#about-us" href="#about-us">من نحن</a></li>
-            <li class="nav-item"><a class="nav-link" data-smooth="#mission" href="#mission">رسالتنا ورؤيتنا</a></li>
-            <li class="nav-item"><a class="nav-link" data-smooth="#services" href="#services">خدماتنا</a></li>
-            <li class="nav-item"><a class="nav-link" data-smooth="#contact" href="#contact">تواصل معنا</a></li>
+            <li class="nav-item"><a class="nav-link " data-smooth="#about-us" href="/#about-us">من نحن</a></li>
+            <li class="nav-item"><a class="nav-link" data-smooth="#mission" href="/#mission">رسالتنا ورؤيتنا</a></li>
+            <li class="nav-item"><a class="nav-link" data-smooth="#services" href="/#services">خدماتنا</a></li>
+            <li class="nav-item"><a class="nav-link" data-smooth="#contact" href="/#contact">تواصل معنا</a></li>
         </ul>
     </div>
 </nav>
 
+<main>
 @yield('content')
-
+</main>
 <!-- Footer -->
-<footer class="page-footer font-small bg-dark mt-5">
+<footer class="page-footer font-small bg-dark ">
 
     <!-- Footer Links -->
-    <div class="container text-center mt-5">
+    <div class="container text-center">
 
         <!-- Grid row -->
         <div class="row mt-3" data-aos="fade-up">
 
             <!-- logo -->
-            <div class="col-md-4 mx-auto my-4">
+            <div class="col-md-4 mx-auto py-3">
 
-                <a data-smooth="#intro" href="#intro"> <img src="{{asset('images/logo.png')}}" alt="logo" height="100"> </a>
+                <a data-smooth="#intro" href="/#intro"> <img src="{{asset('images/logo.png')}}" alt="logo" height="80"> </a>
 
 
             </div>
@@ -67,7 +68,7 @@
     <!-- Footer Links -->
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center text-uppercase py-3 mt-3">
+    <div class="footer-copyright text-center text-uppercase py-3 mt-1">
 
         جميع الحقوق محفوظة ©
         <a data-smooth="#intro" href="#intro" class="pl-2">TIM</a>

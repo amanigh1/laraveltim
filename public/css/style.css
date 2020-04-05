@@ -5,7 +5,7 @@
 html,
 body,
 header {
-    height: 100%;
+    height: calc(100vh - 151px);
     width: 100%;
 }
 
@@ -14,6 +14,11 @@ body {
     letter-spacing: 0;
     position: relative;
     background-color: #fff;
+}
+
+main{
+    min-height: calc(100vh - 335px);
+
 }
 
 /* Paste this css to your style sheet file or under head tag */
@@ -79,7 +84,9 @@ if it's not present, don't show loader */
     letter-spacing: 0rem;
 }
 
-
+.margin{
+    margin-top: 150px;
+}
 body[data-aos-duration='4000'] [data-aos],
 [data-aos][data-aos][data-aos-duration='4000'] {
     transition-duration: 4000ms;
@@ -121,7 +128,7 @@ a {
     text-align: center;
 }
 
-.card {
+.service .card{
     background-color: transparent;
     border: none;
     box-shadow: none;
@@ -129,12 +136,12 @@ a {
     height: 500px;
 }
 
-.card-img-top{
+.service .card-img-top{
     object-fit: contain;
     height: 200px;
 }
 
-.card-text{
+.service .card-text{
     width:200px;
     margin: auto;
 }
@@ -367,6 +374,10 @@ h2 {
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
+.swal2-styled.swal2-confirm {
+    background-color: #1be6d8 !important;
+    color: black !important;
+}
 
 
 

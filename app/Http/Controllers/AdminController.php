@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
+use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class AdminController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,6 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $today_orders = Order::whereDay('created_at',  Carbon::now()->day)->count();
+
+
+        return view('admin.dashboard' , compact('today_orders'));
     }
 }
