@@ -1,3 +1,4 @@
+
 @extends('layouts.front')
 
 @section('content')
@@ -90,7 +91,7 @@
                     <div class="row service">
                         @foreach($services as $service)
                             <div class="card  col-lg-3 mb-4" data-aos="zoom-out">
-                                <img class="card-img-top" src="{{asset('images/services/'.$service->image)}}"
+                                <img class="card-img-top" src="{{asset($service->image)}}"
                                      alt="Card image cap">
                                 <div class="card-body d-flex flex-column">
                                     <h5 class="card-title">{{$service->name}}</h5>

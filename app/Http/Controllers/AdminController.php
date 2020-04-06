@@ -28,8 +28,10 @@ class AdminController extends Controller
     {
 
         $today_orders = Order::whereDay('created_at',  Carbon::now()->day)->count();
+        $month_orders = Order::whereMonth('created_at',  Carbon::now()->month)->count();
+        $full_orders = Order::count();
 
 
-        return view('admin.dashboard' , compact('today_orders'));
+        return view('admin.dashboard' , compact('today_orders','month_orders', 'full_orders'));
     }
 }

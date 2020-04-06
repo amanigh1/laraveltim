@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="ar" >
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,14 +28,14 @@
                                                                       width="100"></div>
         </a>
         <div class="list-group list-group-flush">
-            <a href="{{url('/admin')}}"
-               class="list-group-item list-group-item-action {{ Request::is('admin') ? 'active' : '' }}">إحصاءات
-                اليوم</a>
-            <a href="{{url('/admin/orders')}}"
-               class="list-group-item list-group-item-action {{ Request::is('admin/orders') ? 'active' : '' }}">الطلبات</a>
-            <a href="{{url('/admin/services')}}"
-               class="list-group-item list-group-item-action {{ Request::is('admin/services') ? 'active' : '' }}">الخدمات</a>
-            <a href="{{url('/admin/users')}}" class="list-group-item list-group-item-action {{ Request::is('admin/users') ? 'active' : '' }}">الحسابات</a>
+            <a href="{{url('/adminpanel')}}"
+               class="list-group-item list-group-item-action {{ Request::is('adminpanel') ? 'active' : '' }}">إحصاءات
+                </a>
+            <a href="{{url('/adminpanel/orders')}}"
+               class="list-group-item list-group-item-action {{ Request::is('adminpanel/orders') ? 'active' : '' }}">الطلبات</a>
+            <a href="{{url('/adminpanel/services')}}"
+               class="list-group-item list-group-item-action {{ Request::is('adminpanel/services') ? 'active' : '' }}">الخدمات</a>
+            <a href="{{url('/adminpanel/users')}}" class="list-group-item list-group-item-action {{ Request::is('adminpanel/users') ? 'active' : '' }}">الحسابات</a>
         </div>
     </div>
 
@@ -87,10 +87,32 @@
             <div class="container mt-5" dir="rtl">
                 @yield('content')
             </div>
+
         </div>
+        <!-- Footer -->
+        <footer class="page-footer font-small " dir="rtl">
+
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center small py-3 mt-1">
+
+                جميع الحقوق محفوظة ©
+                <a data-smooth="#intro" href="#intro" class="pl-2 text-info">TIM</a>
+
+                <script type="text/javascript">
+                    document.write(new Date().getFullYear());
+                </script>
+
+            </div>
+            <!-- Copyright -->
+
+        </footer>
+        <!-- Footer -->
     </div>
 
 </div>
+
+
 
 
 <!-- jQuery library -->
@@ -153,29 +175,46 @@
     @endif
 
 
-    @if(session('edit_order'))
+
+    // services
+
+    @if(session('service_created'))
 
     Swal.fire({
         position: 'center',
         icon: 'success',
-        html: 'Order #{{session('edit_order')}} has been successfully edited.',
+        html: 'تم إضافة الخدمة بنجاح',
         height: '10px',
         showConfirmButton: false,
         timer: 3000
     });
     @endif
 
-    @if(session('cancel_order'))
+    @if(session('service_deleted'))
 
     Swal.fire({
         position: 'center',
         icon: 'success',
-        html: 'Order #{{session('cancel_order')}} has been successfully cancelled.',
+        html: 'تم حذف الخدمة بنجاح',
         height: '10px',
         showConfirmButton: false,
         timer: 3000
-    })
+    });
     @endif
+
+
+    @if(session('service_edited'))
+
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        html: 'تم تعديل الخدمة بنجاح',
+        height: '10px',
+        showConfirmButton: false,
+        timer: 3000
+    });
+    @endif
+
 
 </script>
 

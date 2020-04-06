@@ -5,42 +5,46 @@
 
 @section('content')
     <div class="container order">
-        <div class="card mx-auto mb-5 p-0 m-5">
-            <div class="card-body ">
-                <div class=" my-2 ">
-                    <div class="goldish text-center">Order #{{ $order->number }}</div>
+
+        <h4 class="text-center">طلب رقم {{ $order->number }}</h4>
+        <div class="hr-blue mb-4"></div>
+        <div class="col-md-10 mx-auto p-0">
+            <div class="card p-0 m-0 w-100 mx-auto" >
+                <div class="card-body  bg-light w-100">
+
+                    <table class=" table table-sm table-borderless text-secondary w-75 mx-auto text-center">
+
+                        <tr>
+                            <td class="text-dark  ">الخدمة</td>
+                            <td class=" ">{{$order->service}}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-dark  ">التاريخ</td>
+                            <td class=" ">{{ $order->created_at->format('d/m/Y') }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-dark  ">الاسم</td>
+                            <td class=" ">{{$order->name}}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-dark  ">الإيميل</td>
+                            <td class=" "><a href="mailto:{{$order->email}}">{{$order->email}}</a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="text-dark  ">الجوال</td>
+                            <td class=" ">{{ $order->mobile }}</td>
+                        </tr>
+
+                    </table>
                 </div>
+                <div class="text-center">
+                    <a class="btn btn-info mt-3" href="{{route('orders.index')}}"> <i
+                            class="fas fa-arrow-left text-light pt-1"></i></a>
+                </div>
+            </div>
 
-                <table class=" ml-3 table table-sm table-borderless text-secondary">
 
-                    <tr>
-                        <td  class="goldish">الخدمة</td>
-                        <td>{{$order->service}}</td>
-                    </tr>
-                    <tr>
-                        <td  class="goldish">التاريخ</td>
-                        <td>{{ $order->created_at->format('d/m/Y') }}</td>
-                    </tr>
-                    <tr>
-                        <td  class="goldish">الاسم</td>
-                        <td >{{$order->name}}</td>
-                    </tr>
-                    <tr>
-                        <td  class="goldish">الإيميل</td>
-                        <td>{{$order->email}}</td>
-                    </tr>
-
-                    <tr>
-                        <td  class="goldish">رقم الجوال</td>
-                        <td>{{ $order->mobile }}</td>
-                    </tr>
-
-                </table>
-
-                <div class="hr-blue"></div>
-
-        <div class="text-center">
-            <a class="btn btn-outline-gold mt-3" href="{{route('orders.index')}}"><i class="fas fa-arrow-left"></i> العودة للطلبات</a>
         </div>
     </div>
 @endsection

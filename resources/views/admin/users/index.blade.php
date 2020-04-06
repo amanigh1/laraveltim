@@ -12,7 +12,7 @@
         <div class="col-12 admin">
             <div class="card">
 
-                <!-- add new category -->
+                <!-- add new user -->
                 <div class="col-md-6 mt-3 mb-2 text-right">
                     <a href="{{route('users.create')}}">
                         <button class="btn btn-info"> + إضافة حساب</button>
@@ -51,7 +51,9 @@
 
                                                Swal.fire({
                                                // title: 'Are you sure?',
-                                               text: 'هل أنت متأكد من رغبتك في حذف هذا المستخدم؟',
+                                               html: 'هل أنت متأكد من رغبتك في حذف هذا المستخدم' +
+                                               '<br>' +
+                                               '{{$user->name}}',
                                                icon: 'warning',
                                                width: '300px',
                                                showCancelButton: true,

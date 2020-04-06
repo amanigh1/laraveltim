@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -51,12 +52,23 @@ class OrderController extends Controller
         $order = Order::create($request->all());
 
         if($order){
+            $data = ['number'=>$order->number, 'service'=>$order->service,
+                'date'=>$order->created_at->format('d/m/Y'),
+                'name'=>$order->name,
+                'email'=>$order->email,
+                'mobile'=>$order->mobile];
+
+            Mail::send('emails.order',$data , function ($m){
+                $m->from('amanighanem11@gmail.com', 'Tim project');
+                $m->to('amanighanem11@gmail.com', 'tim tim person')->subject('طلب جديد');
+            });
+
             session()->flash('order_received', $order->name );
             session()->flash('order_number', $order->number);
             return redirect('/');
         }
 
-        dd($request->all());
+
     }
 
     /**

@@ -46,7 +46,7 @@
 
             <!-- add btn -->
         <div class="form-group text-center">
-                <button class="btn btn-info mt-3"> إضافة مستخدم</button>
+                <button class="btn btn-info mt-3"> إضافة حساب</button>
         </div>
     </form>
 </div>

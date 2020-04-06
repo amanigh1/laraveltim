@@ -14,7 +14,9 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::all();
+        $services = Service::orderBy('created_at', 'desc')->paginate(10);
+
+        return view('admin.services.index', compact('services'));
 
     }
 
@@ -25,7 +27,8 @@ class ServiceController extends Controller
      */
     public function create()
     {
-//
+        return view('admin.services.create');
+
     }
 
     /**
@@ -36,7 +39,27 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|min:4|max:50',
+            'description' => 'required|min:4',
+            'image' => 'required|mimes:jpeg,jpg,png',
+        ]);
+
+
+        // Storing the new item from $request
+        $service = new Service();
+        $service->name = $request->name;
+        $service->description = $request->description;
+        $file = $request->file('image');
+        $extension = $file->getClientOriginalExtension();
+        $fileName = time().'.'.$extension;
+        $file->move('images/services/', $fileName);
+        $service->image = $fileName;
+
+
+        $service->save();
+        session()->flash('service_created');
+        return redirect()->route('services.index');
     }
 
     /**
@@ -47,7 +70,8 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        //
+        return view('admin.services.show', compact('service'));
+
     }
 
     /**
@@ -58,7 +82,8 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        //
+        return view('admin.services.edit', compact('service'));
+
     }
 
     /**
@@ -70,7 +95,31 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        //
+        $request->validate([
+            'name' => 'required|min:4|max:50',
+            'description' => 'required|min:4',
+            'image' => 'mimes:jpeg,jpg,png',
+        ]);
+
+
+        // Storing the new item from $request
+        $service = Service::findOrFail($service->id);
+        $service->name = $request->name;
+        $service->description = $request->description;
+        if($file = $request->file('image')){
+            unlink( public_path( $service->image));
+            $extension = $file->getClientOriginalExtension();
+        $fileName = time().'.'.$extension;
+        $file->move('images/services/', $fileName);
+        $service->image = $fileName;
+        }
+
+
+
+
+        $service->save();
+        session()->flash('service_edited');
+        return redirect()->route('services.index');
     }
 
     /**
@@ -81,6 +130,9 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        unlink( public_path( $service->image));
+        $service->delete();
+        session()->flash('service_deleted');
+        return redirect()->route('services.index');
     }
 }

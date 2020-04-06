@@ -17,13 +17,17 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-Auth::routes();
+//Auth::routes();
+
+Auth::routes([
+    'register' => false
+]);
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/admin', 'AdminController@index')->name('home');
-    Route::resource('/admin//services', 'ServiceController');
-    Route::resource('/admin//orders', 'OrderController');
-    Route::resource('/admin//users', 'UserController');
+    Route::get('/adminpanel', 'AdminController@index')->name('home');
+    Route::resource('/adminpanel//services', 'ServiceController');
+    Route::resource('/adminpanel//orders', 'OrderController');
+    Route::resource('/adminpanel//users', 'UserController');
 });
 
 Route::get('/service_form/{service}', 'OrderController@service_form')->name('service_form');

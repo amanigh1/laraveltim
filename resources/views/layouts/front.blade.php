@@ -68,7 +68,7 @@
     <!-- Footer Links -->
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center text-uppercase py-3 mt-1">
+    <div class="footer-copyright text-center small  py-3 mt-1">
 
         جميع الحقوق محفوظة ©
         <a data-smooth="#intro" href="#intro" class="pl-2">TIM</a>

@@ -15,6 +15,7 @@ if it's not present, don't show loader */
     z-index: 9999;
 }
 
+
 body {
     background-color: #091315;
     font-family: 'Tajawal', sans-serif;
@@ -22,9 +23,7 @@ body {
 }
 
 .dash-box{
-    height: 150px;
-    margin-top: 20px;
-
+    height: 100px;
 }
 
 .admin .card{
@@ -119,17 +118,34 @@ input {
     max-width: 800px;
     margin: auto;
     overflow: auto;
-    /*border: 1px solid #cbb077;*/
+    border: none;
 }
 
 .order .card  {
     border-radius: 0;
     background-color: transparent;
-    max-width: 400px;
+    /*max-width: 400px;*/
     margin: auto;
-    border: 1px solid #cbb077;
+    /*border: 1px solid #000000;*/
 }
 
+.service .card{
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    text-align: center;
+    height: 500px;
+}
+
+.service .card-img-top{
+    object-fit: contain;
+    height: 200px;
+}
+
+.service .card-text{
+    width:200px;
+    margin: auto;
+}
 
 .btn{
     border-radius: 0;
@@ -313,14 +329,17 @@ a {
 #page-content-wrapper {
     min-width: 100vw;
     background-color: #fff;
+    min-height: calc(100vh - 190px);
 }
+
+
 
 .border-bottom{
     border-bottom: 1px solid white !important;
 }
 
 .border-right{
-    border-right: 1px solid white !important;
+    border-right: 1px solid #091315 !important;
 }
 
 #wrapper.toggled #sidebar-wrapper{
@@ -332,7 +351,7 @@ a {
 }
 
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
     #sidebar-wrapper {
         margin-left: 0;
     }
