@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except('store','service_form');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -47,12 +53,12 @@ class OrderController extends Controller
             'mobile' => 'required|numeric|min:10'
         ]);
 
-        $request['number'] = rand(1000, 9999);
+
 
         $order = Order::create($request->all());
 
         if($order){
-            $data = ['number'=>$order->number, 'service'=>$order->service,
+            $data = ['id'=>$order->id, 'service'=>$order->service,
                 'date'=>$order->created_at->format('d/m/Y'),
                 'name'=>$order->name,
                 'email'=>$order->email,
@@ -64,7 +70,7 @@ class OrderController extends Controller
             });
 
             session()->flash('order_received', $order->name );
-            session()->flash('order_number', $order->number);
+            session()->flash('order_id', $order->id);
             return redirect('/');
         }
 
@@ -79,6 +85,8 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
+
+
         return view('admin.orders.show', compact('order'));
 
     }
@@ -114,6 +122,9 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+
+        $order->delete();
+        session()->flash('order_deleted');
+        return redirect()->route('orders.index');
     }
 }

@@ -107,7 +107,7 @@ class ServiceController extends Controller
         $service->name = $request->name;
         $service->description = $request->description;
         if($file = $request->file('image')){
-            unlink( public_path( $service->image));
+            unlink($service->image);
             $extension = $file->getClientOriginalExtension();
         $fileName = time().'.'.$extension;
         $file->move('images/services/', $fileName);
@@ -130,7 +130,7 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        unlink( public_path( $service->image));
+        unlink($service->image);
         $service->delete();
         session()->flash('service_deleted');
         return redirect()->route('services.index');

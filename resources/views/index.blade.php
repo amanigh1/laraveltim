@@ -146,8 +146,8 @@
 
         @if(session('order_received'))
         Swal.fire({
-            title: '<span class="goldish">شكرًا {{session('order_received')}}!</span>',
-            html: 'تم استلام طلبكم رقم {{session("order_number")}} بنجاح، وسيتم التّواصل معكم قريبًا.',
+            title: '<span class="goldish">شكرًا {{session('order_received')}}</span>',
+            html: 'تم استلام طلبكم رقم {{session("order_id")}} بنجاح، وسيتم التّواصل معكم قريبًا.',
             icon: 'success',
             width: '300px',
             backdrop: 'rgba(0,0,0,.8)',

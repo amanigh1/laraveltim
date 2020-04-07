@@ -61,7 +61,7 @@
                                                cancelButtonText: 'إلغاء'
                                                }).then((result) => {
                                                if (result.value) {
-                                               document.getElementById('delete-form').submit();
+                                               document.getElementById('delete-form{{$service->id}}').submit();
                                                }
                                                })
 
@@ -70,7 +70,7 @@
                                                 <i class="fa fa-trash text-danger"></i>
                                             </a>
 
-                                            <form id="delete-form" action="{{route('services.destroy', $service->id)}}" method="POST" style="display: none;">
+                                            <form id="delete-form{{$service->id}}" action="{{route('services.destroy', $service->id)}}" method="POST" style="display: none;">
                                                 @csrf
                                                 @method('delete')
                                             </form>

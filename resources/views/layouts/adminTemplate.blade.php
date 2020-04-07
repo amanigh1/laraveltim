@@ -174,7 +174,17 @@
     });
     @endif
 
+    @if(session('order_deleted'))
 
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        html: 'تم حذف الطلب بنجاح',
+        height: '10px',
+        showConfirmButton: false,
+        timer: 3000
+    });
+    @endif
 
     // services
 

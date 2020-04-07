@@ -6,7 +6,7 @@
 @section('content')
     <div class="container order">
 
-        <h4 class="text-center">طلب رقم {{ $order->number }}</h4>
+        <h4 class="text-center">طلب رقم {{ $order->id }}</h4>
         <div class="hr-blue mb-4"></div>
         <div class="col-md-10 mx-auto p-0">
             <div class="card p-0 m-0 w-100 mx-auto" >
